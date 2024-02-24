@@ -15,13 +15,13 @@ connectDB(DATABASE_URL)
 const app = express();
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://jiospin.info")
+  res.header("Access-Control-Allow-Origin", "https://jiospin.info")
   next()
 })
 
 app.use(
   cors({
-    origin: "http://jiospin.info",
+    origin: "https://jiospin.info",
     methods: "GET, POST, PATCH, DELETE, PUT",
     credentials: true,
   })
