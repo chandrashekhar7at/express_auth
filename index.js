@@ -14,19 +14,24 @@ connectDB(DATABASE_URL)
 
 const app = express();
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://www.jiospin.info")
-  next()
-})
+// Set the specific origin of your frontend
+const allowedOrigins = [
+  "https://www.jiospin.info", // Add your frontend URL here
+  // Add more origins if needed
+];
 
-app.use(
-  cors({
-    origin: "https://www.jiospin.info",
-    methods: "GET, POST, PATCH, DELETE, PUT",
-    credentials: true,
-    optionSuccessStatus:200
-  })
-);
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(cookieParser());
 app.use(express.json());
