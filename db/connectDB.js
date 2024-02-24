@@ -20,7 +20,3 @@ export default connectDB
 
 
 
-// db.createUser({user:"csadmin",pwd:"cs123",roles:["root"]})
-// db.createUser({user:"spinuser",pwd:"9634Gamer$7",roles:[{role:"readWrite",db:"spinGamer"}]})
-
-// GIT_SSH_COMMAND="ssh -i ~/.ssh/react_ed25519" git pull
