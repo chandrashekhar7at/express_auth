@@ -1,5 +1,5 @@
 import express from "express";
-// import cors from "cors";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import auth from "./routes/authRoute.js";
@@ -14,18 +14,18 @@ connectDB(DATABASE_URL)
 
 const app = express();
 
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "http://jiospin.info")
-//   next()
-// })
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://jiospin.info")
+  next()
+})
 
-// app.use(
-//   cors({
-//     origin: "http://jiospin.info",
-//     methods: "GET, POST, PATCH, DELETE, PUT",
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: "http://jiospin.info",
+    methods: "GET, POST, PATCH, DELETE, PUT",
+    credentials: true,
+  })
+);
 
 app.use(cookieParser());
 app.use(express.json());
