@@ -20,7 +20,6 @@ export default connectDB
 
 
 
-// db.createUser({user:"chandrashekharadmin",pwd:"9634Michal",roles:["root"]})
-
+// db.createUser({user:"csadmin",pwd:"cs123",roles:["root"]})
 // db.createUser({user:"spinuser",pwd:"9634Gamer$7",roles:[{role:"readWrite",db:"spinGamer"}]})
 
