@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: "https://jiospin.vercel.app",
+    origin: "http://jiospin.info",
     methods: "GET, POST, PATCH, DELETE, PUT",
     credentials: true,
   })
