@@ -5,7 +5,7 @@ import { verifyToken } from '../utils/verifyUser.js'
 const router = express()
 
 router.get('/signup',(req,res)=>{
-    res.send("worked aksjdksad jkas dj")
+    res.status(201).json({success:true,message:"have done"})
 })
 router.post('/signup',signup)
 router.post('/signin',signin)
