@@ -19,6 +19,6 @@ app.use(express.json());
 
 app.use('/auth', auth);
 
-app.listen(port, () => {
+app.listen(port, (req,res) => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
