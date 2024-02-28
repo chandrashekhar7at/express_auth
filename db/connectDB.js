@@ -10,7 +10,7 @@ const connectDB = async (DATABASE_URL)=>{
             dbname : process.env.dbname,
             authSource:process.env.authSource
         }
-        const conn = await mongoose.connect(DATABASE_URL)
+        const conn = await mongoose.connect(DATABASE_URL,dbOptions)
         console.log('connected')
     } catch (error) {
         console.log('connection failed',error)
