@@ -7,27 +7,28 @@ export const signup = async (req,res)=>{
     const {fullname,phone,email,password} = req.body
     console.log("result---->",req.body)
     try {
-        const hashedpassword = bcryptjs.hashSync(password,10)
+        // const hashedpassword = bcryptjs.hashSync(password,10)
         const data =new userModel({
             fullname,phone,email,password
         })
         const resdata = await data.save()
+        res.status(201).json({success:true,message:'user created successfully',data:resdata})
+        // const {password:hashpass,...restdata} = resdata._doc
+        // console.log(resdata)
 
-        const {password:hashpass,...restdata} = resdata._doc
-        console.log(resdata)
-        if(resdata){
-            const currentDate = new Date();
-            const expirydate = new Date(currentDate.getTime() + (30 * 24 * 60 * 60 * 1000)); // Adding 30 days in milliseconds
+        // if(resdata){
+        //     const currentDate = new Date();
+        //     const expirydate = new Date(currentDate.getTime() + (30 * 24 * 60 * 60 * 1000)); // Adding 30 days in milliseconds
 
-            const expiresInSeconds = 5 * 24 * 60 * 60; // 5 days * 24 hours/day * 60 minutes/hour * 60 seconds/minute
-            const token = jwt.sign({id:resdata._id},process.env.JWT_SECRET,{expiresIn:expiresInSeconds})
-            res.cookie('GamingAuthToken',token,{
-                httpOnly:true,
-                // sameSite:'none',
-                secure:true,
-                maxAge:expirydate
-            }).status(201).json({success:true,message:'user created successfully',restdata})
-        }
+        //     const expiresInSeconds = 5 * 24 * 60 * 60; // 5 days * 24 hours/day * 60 minutes/hour * 60 seconds/minute
+        //     const token = jwt.sign({id:resdata._id},process.env.JWT_SECRET,{expiresIn:expiresInSeconds})
+        //     res.cookie('GamingAuthToken',token,{
+        //         httpOnly:true,
+        //         // sameSite:'none',
+        //         secure:true,
+        //         maxAge:expirydate
+        //     }).status(201).json({success:true,message:'user created successfully',restdata})
+        // }
     } catch (error) {
         console.log(error.message)
         res.status(401).json({success:false,message:'user creation failed'})
