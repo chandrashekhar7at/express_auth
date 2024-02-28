@@ -13,7 +13,7 @@ export const signup = async (req,res)=>{
         if(resdata){
             res.status(201).json({success:true,message:'user created successfully',data})
         }
-        res.status(200).json({success:true,message:'user created successfully',data})
+        res.status(200).json({success:true,message:'user created shhuccessfully',data})
 
     // try {
     //     const hashedpassword = bcryptjs.hashSync(password,10)
