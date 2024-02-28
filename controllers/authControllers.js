@@ -12,7 +12,7 @@ export const signup = async (req,res)=>{
             fullname,phone,email,password:hashedpassword
         })
         const resdata = await data.save()
-        res.status(201).json({success:true,message:'user created successfully',data:resdata})
+        // res.status(201).json({success:true,message:'user created successfully',data:resdata})
         const {password:hashpass,...restdata} = resdata._doc
         console.log(resdata)
 
