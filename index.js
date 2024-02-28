@@ -3,7 +3,7 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import auth from "./routes/authRoute.js";
 import connectDB from "./db/connectDB.js";
-// import cors from "cors"; // Import cors
+import cors from "cors"; // Import cors
 
 dotenv.config();
 const port = process.env.PORT || 8000;
@@ -17,10 +17,10 @@ app.use(cookieParser());
 app.use(express.json());
 
 // Use cors middleware
-// app.use(cors({
-//   origin:'http://baseergaming.com',
-//   credentials:true
-// }));
+app.use(cors({
+  origin:'http://baseergaming.com',
+  credentials:true
+}));
 
 app.use('/auth', auth);
 
