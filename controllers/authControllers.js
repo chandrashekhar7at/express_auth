@@ -9,10 +9,10 @@ export const signup = async (req,res)=>{
         const data =new userModel({
             fullname,phone,email,password
         })
-        const resdata = await data.save()
-        if(resdata){
-            res.status(201).json({success:true,message:'user created successfully',data})
-        }
+        // const resdata = await data.save()
+        // if(resdata){
+        //     res.status(201).json({success:true,message:'user created successfully',data})
+        // }
         res.status(200).json({success:false,message:'user created unsuccessfully'})
 
     // try {
