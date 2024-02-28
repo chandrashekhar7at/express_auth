@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-mongoose.set('strictQuery',false)
+// mongoose.set('strictQuery',false)
 
 const connectDB = async (DATABASE_URL)=>{
     try {
@@ -11,7 +11,7 @@ const connectDB = async (DATABASE_URL)=>{
             authSource:process.env.authSource
         }
         const conn = await mongoose.connect(DATABASE_URL,dbOptions)
-        console.log('connected')
+        
     } catch (error) {
         console.log('connection failed',error)
     }
