@@ -23,8 +23,6 @@ export const signup = async (req,res)=>{
             const token = jwt.sign({id:resdata._id},process.env.JWT_SECRET,{expiresIn:expiresInSeconds})
             res.cookie('GamingAuthToken',token,{
                 httpOnly:true,
-                sameSite:'none',
-                secure:true,
                 maxAge:expirydate
             }).status(201).json({success:true,message:'user created successfully',restdata})
         }
