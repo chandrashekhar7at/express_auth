@@ -13,9 +13,6 @@ router.get('/demofile',(req,res)=>{
 router.post('/signup',signup)
 router.post('/signin',signin)
 router.post('/newwinning/:id',verifyToken,updateSpinResult)
-router.post('/logout',(req,res)=>{
-    console.log('clicked logout')
-    res.status(201).json({success:true,message:"logout true"})
-})
+router.post('/logout',logout)
 
 export default router
