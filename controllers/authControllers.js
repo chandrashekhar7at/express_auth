@@ -11,14 +11,14 @@ export const signup = async (req,res)=>{
         const data =new userModel({
             fullname,phone,email,password
         })
-        // const resdata = await data.save()
-        if(data){
-            res.status(201).json({success:true,message:'user created successfully',data})
+        const resdata = await data.save()
+        if(resdata){
+            res.status(201).json({success:true,message:'user created successfully',resdata})
         }else{
-            res.status(201).json({success:false,message:'user created unsuccessfully',data})
+            res.status(201).json({success:false,message:'user created unsuccessfully',resdata})
         }
         // const {password:hashpass,...restdata} = resdata._doc
-        console.log(data)
+        console.log(resdata)
 
         // if(resdata){
         //     const currentDate = new Date();
