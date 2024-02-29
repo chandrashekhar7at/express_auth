@@ -7,9 +7,9 @@ export const signup = async (req,res)=>{
     const {fullname,phone,email,password} = req.body
     console.log("result---->",req.body)
     try {
-        const hashedpassword = bcryptjs.hashSync(password,10)
+        // const hashedpassword = bcryptjs.hashSync(password,10)
         const data =new userModel({
-            fullname,phone,email,password:hashedpassword
+            fullname,phone,email,password
         })
         const resdata = await data.save()
         const {password:hashpass,...restdata} = resdata._doc
