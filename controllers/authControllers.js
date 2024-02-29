@@ -91,12 +91,17 @@ export const updateSpinResult = async(req,res)=>{
 export const logout = async (req, res) => {
     try {
         console.log('clickedddd...')
-        res.cookie('GamingAuthToken', '', {
-            httpOnly: true,
-            expires: new Date(0),
-            secure: false,
-        });
-        res.status(401).json({ success: true, message: 'success logout' });
+        // res.cookie('GamingAuthToken', '', {
+        //     httpOnly: true,
+        //     expires: new Date(0),
+        //     secure: false,
+        // });
+        // res.status(401).json({ success: true, message: 'success logout' });
+        res.cookie('GamingAuthToken','',{
+            httpOnly:true,
+            sameSite:'none',
+            maxAge:new Date(0)
+        }).status(201).json({success:true,message:'user logout successfully'})
     } catch (error) {
         res.status(401).json({ success: false, message: 'failed' });
     }
