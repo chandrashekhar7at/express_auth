@@ -95,7 +95,6 @@ export const logout = async (req, res) => {
             httpOnly: true,
             expires: new Date(0),
             secure: false,
-            sameSite: 'none'
         });
         res.status(401).json({ success: true, message: 'success logout' });
     } catch (error) {
