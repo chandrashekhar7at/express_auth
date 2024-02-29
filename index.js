@@ -24,7 +24,7 @@ app.use(express.json());
 
 // Use cors middleware
 app.use(cors({
-  origin:'http://baseergaming.com',
+  origin:'https://baseergaming.com',
   credentials:true
 }));
 
