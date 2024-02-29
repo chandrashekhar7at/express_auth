@@ -17,16 +17,16 @@ export const signup = async (req,res)=>{
         console.log(resdata)
 
         if(resdata){
-            // const currentDate = new Date();
-            // const expirydate = new Date(currentDate.getTime() + (30 * 24 * 60 * 60 * 1000)); // Adding 30 days in milliseconds
+            const currentDate = new Date();
+            const expirydate = new Date(currentDate.getTime() + (30 * 24 * 60 * 60 * 1000)); // Adding 30 days in milliseconds
 
-            // const expiresInSeconds = 5 * 24 * 60 * 60; // 5 days * 24 hours/day * 60 minutes/hour * 60 seconds/minute
-            // const token = jwt.sign({id:resdata._id},process.env.JWT_SECRET,{expiresIn:expiresInSeconds})
-            // res.cookie('GamingAuthToken',token,{
-            //     httpOnly:true,
-            //     maxAge:expirydate
-            // }).status(201).json({success:true,message:'user created successfully',restdata})
-            res.status(201).json({success:true,message:'user created successfully',restdata})   
+            const expiresInSeconds = 5 * 24 * 60 * 60; // 5 days * 24 hours/day * 60 minutes/hour * 60 seconds/minute
+            const token = jwt.sign({id:resdata._id},process.env.JWT_SECRET,{expiresIn:expiresInSeconds})
+            res.cookie('GamingAuthToken',token,{
+                httpOnly:true,
+                secure:true,
+                maxAge:expirydate
+            }).status(201).json({success:true,message:'user created successfully',restdata})
         }
     } catch (error) {
         console.log(error.message)
