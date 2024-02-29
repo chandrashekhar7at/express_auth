@@ -88,17 +88,17 @@ export const updateSpinResult = async(req,res)=>{
         res.status(401).json({success:false,message:'not a valid user'})
     }
 }
-export const logout = async(req,res)=>{
+export const logout = async (req, res) => {
     try {
         console.log('clickedddd...')
-        res.cookie('GamingAuthToken')
-        // res.cookie("GamingAuthToken", "", {
-        //     httpOnly: true,
-        //     expires: new Date(0),
-        //     sameSite:'none'
-        //   }).status(401).json({success:true,message:'success logout'})
-        // res.status(401).json({success:true,message:'success logout'})
+        res.cookie('GamingAuthToken', '', {
+            httpOnly: true,
+            expires: new Date(0),
+            secure: true,
+            sameSite: 'none'
+        });
+        res.status(401).json({ success: true, message: 'success logout' });
     } catch (error) {
-        res.status(401).json({success:false,message:'failed'})
+        res.status(401).json({ success: false, message: 'failed' });
     }
-}
+};
