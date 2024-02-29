@@ -65,10 +65,11 @@ export const signin = async(req,res)=>{
 }
 
 export const updateSpinResult = async(req,res)=>{
-    console.log('clicked',req.body.winning)
+    console.log('clicked',req.body.winning ,req.user.id,req.params.id)
     try {
         if (req.user.id !== req.params.id) {
             res.status(401).json({success:false,message:'not a valid user'})
+            return;
         }
         console.log('clicked1',req.body.winning," ",req.params.id)
         const updatedUser = await userModel.findByIdAndUpdate(req.params.id,{
