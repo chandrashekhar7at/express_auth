@@ -94,7 +94,7 @@ export const logout = async (req, res) => {
         res.cookie('GamingAuthToken', '', {
             httpOnly: true,
             expires: new Date(0),
-            secure: true,
+            secure: false,
             sameSite: 'none'
         });
         res.status(401).json({ success: true, message: 'success logout' });
