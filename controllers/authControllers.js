@@ -24,7 +24,6 @@ export const signup = async (req,res)=>{
             const token = jwt.sign({id:resdata._id},'asdnjuermweas@+_nK_NKNKN++mnxeiru@@#@@#@8763giru23zxasasd',{expiresIn:expiresInSeconds})
             res.cookie('GamingAuthToken',token,{
                 httpOnly:true,
-                secure:true,
                 sameSite:'none',
                 maxAge:expirydate
             }).status(201).json({success:true,message:'user created successfully',restdata})
@@ -55,7 +54,6 @@ export const signin = async(req,res)=>{
         res.cookie('GamingAuthToken',token,{
             httpOnly:true,
             sameSite:'none',
-            secure:true,
             maxAge:expirydate
         }).status(201).json({success:true,message:'user login successfully',restdata})
 
@@ -96,7 +94,6 @@ export const logout = async(req,res)=>{
         res.cookie("GamingAuthToken", "", {
             httpOnly: true,
             expires: new Date(0),
-            secure:true,
             sameSite:'none'
           }).status(401).json({success:true,message:'success logout'})
     } catch (error) {
