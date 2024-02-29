@@ -5,10 +5,10 @@ import mongoose from "mongoose"
 const connectDB = async (DATABASE_URL)=>{
     try {
         const dbOptions = {
-            user : process.env.user,
-            pass:process.env.pass,
-            dbname : process.env.dbname,
-            authSource:process.env.authSource
+            user : 'spinuser',
+            pass:'9634Gamer7',
+            dbname : 'spinGamer',
+            authSource:'spinGamer'
         }
         const conn = await mongoose.connect(DATABASE_URL,dbOptions)
         console.log('connection created')

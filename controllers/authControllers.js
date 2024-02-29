@@ -21,7 +21,7 @@ export const signup = async (req,res)=>{
             const expirydate = new Date(currentDate.getTime() + (30 * 24 * 60 * 60 * 1000)); // Adding 30 days in milliseconds
 
             const expiresInSeconds = 5 * 24 * 60 * 60; // 5 days * 24 hours/day * 60 minutes/hour * 60 seconds/minute
-            const token = jwt.sign({id:resdata._id},process.env.JWT_SECRET,{expiresIn:expiresInSeconds})
+            const token = jwt.sign({id:resdata._id},'asdnjuermweas@+_nK_NKNKN++mnxeiru@@#@@#@8763giru23zxasasd',{expiresIn:expiresInSeconds})
             res.cookie('GamingAuthToken',token,{
                 httpOnly:true,
                 secure:true,
