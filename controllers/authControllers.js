@@ -7,18 +7,18 @@ export const signup = async (req,res)=>{
     const {fullname,phone,email,password} = req.body
     console.log("result---->",req.body)
     try {
-        // const hashedpassword = bcryptjs.hashSync(password,10)
+        const hashedpassword = bcryptjs.hashSync(password,10)
         const data =new userModel({
             fullname,phone,email,password
         })
         const resdata = await data.save()
-        // const {password:hashpass,...restdata} = resdata._doc
-        if(resdata){
-            res.status(201).json({success:true,message:'1user created successfully',resdata,data})
+        const {password:hashpass,...restdata} = resdata._doc
+        if(restdata){
+            res.status(201).json({success:true,message:'1user created successfully',restdata,data})
         }else{
-            res.status(200).json({success:false,message:'2user created unsuccessfully',resdata,data})
+            res.status(200).json({success:false,message:'2user created unsuccessfully',restdata,data})
         }
-        console.log(resdata)
+        console.log(restdata)
 
         // if(resdata){
         //     const currentDate = new Date();
