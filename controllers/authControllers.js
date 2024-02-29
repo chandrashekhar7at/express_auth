@@ -54,8 +54,9 @@ export const signin = async(req,res)=>{
         const token = jwt.sign({id:restdata._id},'asdnjuermweas@+_nK_NKNKN++mnxeiru@@#@@#@8763giru23zxasasd',{expiresIn:'1h'})
         res.cookie('GamingAuthToken',token,{
             httpOnly:true,
-            // sameSite:'none',
-            // maxAge:expirydate
+            sameSite:'none',
+            secure:true,
+            maxAge:900000
         }).status(201).json({success:true,message:'user login successfully',restdata})
 
     } catch (error) {
