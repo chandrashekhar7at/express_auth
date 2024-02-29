@@ -25,6 +25,7 @@ export const signup = async (req,res)=>{
             res.cookie('GamingAuthToken',token,{
                 httpOnly:true,
                 secure:true,
+                sameSite:'none',
                 maxAge:expirydate
             }).status(201).json({success:true,message:'user created successfully',restdata})
         }
