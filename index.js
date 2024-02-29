@@ -9,14 +9,14 @@ dotenv.config();
 const port = process.env.PORT || 8000;
 const DATABASE_URL = process.env.DATABASE_URL;
 
-// connectDB(DATABASE_URL);
-mongoose.connect('mongodb+srv://spinuser:9634Gamer7@cluster0.1cehtmy.mongodb.net/spinGamer?retryWrites=true&w=majority&appName=Cluster0')
-.then((res)=>{
-    console.log(res)
-})
-.catch((err)=>{
-    console.log(err)
-})
+connectDB(DATABASE_URL);
+// mongoose.connect('mongodb+srv://spinuser:9634Gamer7@cluster0.1cehtmy.mongodb.net/spinGamer?retryWrites=true&w=majority&appName=Cluster0')
+// .then((res)=>{
+//     console.log(res)
+// })
+// .catch((err)=>{
+//     console.log(err)
+// })
 const app = express();
 
 app.use(cookieParser());
