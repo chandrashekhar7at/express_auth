@@ -7,7 +7,7 @@ import cors from "cors"; // Import cors
 
 dotenv.config();
 const port = process.env.PORT || 8000;
-const DATABASE_URL = process.env.DATABASE_URL;
+const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017';
 
 connectDB(DATABASE_URL);
 // mongoose.connect('mongodb+srv://spinuser:9634Gamer7@cluster0.1cehtmy.mongodb.net/spinGamer?retryWrites=true&w=majority&appName=Cluster0')
