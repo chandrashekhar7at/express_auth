@@ -26,7 +26,7 @@ export const signup = async (req,res)=>{
                 httpOnly:true,
                 sameSite:'none',
                 secure:'true',
-                maxAge:expirydate
+                maxAge:100000
             }).status(201).json({success:true,message:'user created successfully',restdata})
         }
     } catch (error) {
