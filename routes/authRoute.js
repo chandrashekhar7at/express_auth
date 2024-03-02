@@ -5,7 +5,11 @@ import { verifyToken } from '../utils/verifyUser.js'
 const router = express()
 
 router.get('/signup',(req,res)=>{
-    res.status(201).json({success:true,message:"have done"})
+    // res.status(201).json({success:true,message:"have done"})
+    res.cookie('abc','def',{
+        maxAge:10000,
+        httpOnly:true
+      }).status(200).json({ success: true });
 })
 router.get('/demofile',(req,res)=>{
     res.status(200).json({success:true,message:"ok done"})
